@@ -37,25 +37,28 @@ Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
 
-function isArrayLengthOdd(numbers) {
-  if(numbers.length%2 !== 0) {
+function isArrayLengthOdd(names) {
+  if (names.length % 2 !== 0) {
     let notpair = names.getRandom();
     return notpair;
   }
 }
 
 function pairs(names) {
-  
-  let i=0;
+  isArrayLengthOdd(names);
+  let i = names.length / 2;
   if (names.length !== 0) {
-  while(i<names.length){
-    let randomone = names.getRandom();
-    let randomtwo = names.getRandom();
-    let newArray = [randomone , randomtwo];
-    return newArray;
+    while (i > 0) {
+      let newArray = [names.getRandom(), names.getRandom()];
+      let bigArray = [newArray.slice()];
+      bigArray = [newArray.slice(), [names.getRandom(), names.getRandom()]];
+      i--;
+      return bigArray;
+    }
+    //return bigArray;
+  } else {
+    return [];
   }
-  
-  } else {return [];}
 }
 console.log(pairs([1, 2, 3, 4]));
 
