@@ -32,14 +32,36 @@
  * console.log(random); // 3 (the random element)
  * console.log(numbers);  // [1, 2, 4] (missing the random element)
  ************************************************/
+
 Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
 
-function pairs(names) {
-  // Your code goes here
+function isArrayLengthOdd(numbers) {
+  if(numbers.length%2 !== 0) {
+    let notpair = names.getRandom();
+    return notpair;
+  }
 }
-// any commint
+
+function pairs(names) {
+  
+  let i=0;
+  if (names.length !== 0) {
+  while(i<names.length){
+    let randomone = names.getRandom();
+    let randomtwo = names.getRandom();
+    let newArray = [randomone , randomtwo];
+    return newArray;
+  }
+  
+  } else {return [];}
+}
+console.log(pairs([1, 2, 3, 4]));
+
+//if ((randomone === undefined)
+//else {returns []}
+
 module.exports = pairs;
 
 console.log(
