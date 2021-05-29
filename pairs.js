@@ -33,37 +33,78 @@
  * console.log(numbers);  // [1, 2, 4] (missing the random element)
  ************************************************/
 
-Array.prototype.getRandom = function () {
+// Array.prototype.getRandom = function () {
+//   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
+// };
+
+// function isArrayLengthOdd(names) {
+//   if (names.length % 2 !== 0) {
+//     let notpair = names.getRandom();
+//     return notpair;
+//   }
+// }
+
+// function pairs(names) {
+//   isArrayLengthOdd(names);
+//   let i = names.length / 2;
+//   if (names.length !== 0) {
+//     while (i > 0) {
+//       let newArray = [names.getRandom(), names.getRandom()];
+//       let bigArray = [newArray.slice()];
+//       bigArray = [newArray.slice(), [names.getRandom(), names.getRandom()]];
+//       i--;
+//       return bigArray;
+//     }
+     //return bigArray;
+//   } else {
+//     return [];
+//   }
+// }
+// console.log(pairs([1, 2, 3, 4]));
+
+//if ((randomone === undefined)
+ //else {returns []}
+
+// the solution
+ Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
 
-function isArrayLengthOdd(names) {
-  if (names.length % 2 !== 0) {
-    let notpair = names.getRandom();
-    return notpair;
-  }
-}
-
 function pairs(names) {
-  isArrayLengthOdd(names);
-  let i = names.length / 2;
-  if (names.length !== 0) {
-    while (i > 0) {
-      let newArray = [names.getRandom(), names.getRandom()];
-      let bigArray = [newArray.slice()];
-      bigArray = [newArray.slice(), [names.getRandom(), names.getRandom()]];
-      i--;
-      return bigArray;
+  let i = 0;
+  let x;
+  let l;
+  let y = [];
+
+  if (names === undefined || names == null || names.length === 0) return [];
+  else if (names.length % 2 === 0) {
+    i = 0;
+    l = names.length;
+    while (i < l / 2) {
+      x = [names.getRandom(), names.getRandom()];
+      y[i] = x;
+
+      i++;
     }
-    //return bigArray;
+    return y;
   } else {
-    return [];
+    i = 0;
+    l = names.length - 1;
+
+
+    while (i < l / 2) {
+      x = [names.getRandom(), names.getRandom()];
+      y[i] = x;
+
+      i++;
+    }
+    if (i === l / 2) {
+      x = [names.getRandom()];
+      y[i] = x;
+    }
+    return y;
   }
 }
-console.log(pairs([1, 2, 3, 4]));
-
-//if ((randomone === undefined)
-//else {returns []}
 
 module.exports = pairs;
 
