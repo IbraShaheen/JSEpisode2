@@ -66,16 +66,14 @@
  //else {returns []}
 
 // the solution
- Array.prototype.getRandom = function () {
+Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
 
 function pairs(names) {
   let i = 0;
-  let x;
-  let l;
+  let x, l;
   let y = [];
-
   if (names === undefined || names == null || names.length === 0) return [];
   else if (names.length % 2 === 0) {
     i = 0;
@@ -90,7 +88,6 @@ function pairs(names) {
   } else {
     i = 0;
     l = names.length - 1;
-
 
     while (i < l / 2) {
       x = [names.getRandom(), names.getRandom()];
@@ -107,6 +104,7 @@ function pairs(names) {
 }
 
 module.exports = pairs;
+
 
 console.log(
   pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
